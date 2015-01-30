@@ -1,5 +1,5 @@
 from random import choice
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 
 # "__name__" is a special Python variable for the name of the current module; Flask wants
@@ -28,6 +28,23 @@ def greet_person():
 
     return render_template("compliment.html", person=player, compliment=compliment)
 
+@app.route('/game')
+def show_game_form():
+    shall_we_play = request.args.get("playgame")
+
+    if shall_we_play == "Yes":
+        return render_template("game.html")
+    else:
+        return render_template("goodbye.html")
+
+@app.route('/madlib')
+def show_madlib():
+    color = request.args.get("color")
+    noun = request.args.get("noun")
+    adjective = request.args.get("adjective")
+    person = request.args.get("person")
+
+    return render_template("madlib.html", color=color, noun=noun, adjective=adjective, person=person)
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app

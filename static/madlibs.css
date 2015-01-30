@@ -1,0 +1,28 @@
+h1 {
+    font-style: oblique;
+    color: #f54246;
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+p {
+    font-size: 14px;
+    text-align: center;
+}
+
+body > box {
+    border-style: solid;    
+    border-color: black;
+    display: inline-block;
+    margin-left: 25%;
+    margin-right: auto;
+    width: 50%;
+    background-color: #F0FFFF;
+}
+
+body {
+    background-color: #E0E6F8;
+}
